@@ -9,35 +9,22 @@ from random import randint
 x = 0
 a = randint(1, 100)
 
-b = int(input('Введите число от 1 до 100: '))
 
-
-def rand_num(a,b,x=0):
-    if b == a and x <= 10:
+def rand_num(a,x=1):
+    b = int(input('Введите число от 1 до 100: '))
+    if b == a:
         return print('Вы угадали!')
-    if b < a:
-        print(print("Загаданное число больше!"))
-        b = int(input('Введите число от 1 до 100: '))
-        return rand_num(b, x + 1)
+    if x == 10:
+        return print('Вы проиграли!')
     if b > a:
         print("Загаданное число меньше!")
-        b = int(input('Введите число от 1 до 100: '))
-        return rand_num(b, x + 1)
+    if b < a:
+        print('Загаданное число больше!')
     print(f'Осталось {10 - x} попыток')
+    return rand_num(a, x + 1)
 
 
-rand_num(a, b)
+rand_num(a)
 print('Это число: ' + str(a))
 
-# while x < 10:
-#     b = int(input('Введите число от 1 до 100: '))
-#     if b > a:
-#         print("Загаданное число меньше!")
-#     elif b < a:
-#         print('Загаданное число больше!')
-#     elif b == a:
-#         print('Вы угадали!')
-#         break
-#     x += 1
-#     print(f'Осталось {10 - x} попыток')
-# print('Это число: ' + str(a))
+
